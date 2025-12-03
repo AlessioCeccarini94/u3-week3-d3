@@ -18,9 +18,9 @@ const jobsReducer = (state = initialState, action) => {
         ...state,
         jobs: {
           ...state.jobs,
-          content: state.jobs.content.filter(
-            (job) => job.id !== action.payload.id
-          ),
+          content: state.jobs.content.filter((job) => {
+            return job !== action.payload
+          }),
         },
       }
     default:
