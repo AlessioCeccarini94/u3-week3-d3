@@ -12,37 +12,23 @@ const Favorites = () => {
     <Row>
       <Col sm={12}>
         <ul className="list-group mx-3">
-          {favorites.map((job, index) => (
+          {favorites.map((company, index) => (
             <>
-              <Row>
-                <li
-                  className="my-4 d-flex justify-content-between"
-                  key={index.id}
+              <li
+                className="my-4 d-flex w-75 justify-content-between align-items-center"
+                key={index}
+              >
+                <Link to={`/${company}`}>{company}</Link>
+                <Button
+                  className="ms-3"
+                  variant="danger"
+                  onClick={() =>
+                    dispatch({ type: "REMOVE_FAVORITE", payload: company })
+                  }
                 >
-                  <Col>
-                    <Link to={`/${job.company_name}`}>{job.company_name}</Link>
-                  </Col>
-                  <Col>
-                    <a href={job.url} target="_blank" rel="noreferrer">
-                      {job.title}
-                    </a>
-                  </Col>
-                  <Col>
-                    <span className="mb-0">{job.title}</span>
-                  </Col>
-                  <Col>
-                    <Button
-                      className="ms-3"
-                      variant="danger"
-                      onClick={() =>
-                        dispatch({ type: "REMMOVE_FAVORITE", payload: job })
-                      }
-                    >
-                      Remove Favorite
-                    </Button>
-                  </Col>
-                </li>
-              </Row>
+                  Remove Favorite
+                </Button>
+              </li>
             </>
           ))}
         </ul>

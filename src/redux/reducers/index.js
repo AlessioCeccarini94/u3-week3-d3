@@ -13,7 +13,7 @@ const jobsReducer = (state = initialState, action) => {
           content: [...state.jobs.content, action.payload],
         },
       }
-    case "REMMOVE_FAVORITE":
+    case "REMOVE_FAVORITE":
       return {
         ...state,
         jobs: {

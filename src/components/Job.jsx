@@ -25,7 +25,7 @@ const Job = ({ data }) => {
           onClick={() => {
             dispatch({
               type: "ADD_FAVORITE",
-              payload: data,
+              payload: data.company_name,
             })
             setAdded(true)
           }}
